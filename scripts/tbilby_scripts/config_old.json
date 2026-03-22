@@ -1,0 +1,7 @@
+{
+    "datadir" : "/fred/oz002/vdimarco/tbiby_PTA_noise/data/PPTA_data",
+    "psrname" : "J1713+0747",
+    "ephem" : "DE440",
+    "outdir": "/fred/oz002/vdimarco/tbiby_PTA_noise/out_PPTA_5000_livepoints",
+    "label": "PPTA_5000_livepoints"
+}
