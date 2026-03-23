@@ -6,3 +6,13 @@ PPTA_data/
 outdir/
 jobs/
 plots/
+scripts/post_pred_scripts/old/
+scripts/post_pred_scripts/trash/
+scripts/pp_plots_scripts/trash/
+scripts/tbilby_scripts/trash/
+__pycache__/
+*.pdf
+*.png
+*.txt
+scripts/tbilby_scripts/utils_old.py
+*.json
