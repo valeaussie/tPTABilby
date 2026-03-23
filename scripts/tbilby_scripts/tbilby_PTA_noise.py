@@ -35,8 +35,8 @@ from enterprise_warp import bilby_warp
 from utils import *
 #from noise_definition import *
 #from noise_definition_2 import *
-#from noise_definition_Meerkat import *
-from singlePsrNoise import *
+from noise_definition_Meerkat import *
+#from singlePsrNoise import *
 
 ### define noise model
 noise_list = noise_models(tm, ef)
@@ -124,7 +124,7 @@ print(noise_list.model_holder.keys())
 
 
 # set sample to False to only run analysis on existing results
-sample = True
+sample = False
 if sample :
     # run sampler
     label = label

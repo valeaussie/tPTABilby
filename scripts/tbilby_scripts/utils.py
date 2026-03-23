@@ -404,7 +404,7 @@ class analysis:
                 fig = corner.corner(samples, labels=param, bins=50, quantiles=[0.025, 0.5, 0.975],
                         show_titles=True, title_kwargs={"fontsize": 12})
                 plotdir = outdir + '/' + 'plots'
-                plt.savefig(plotdir + '/' + '{}.png'.format(binary_to_decimal(key)), bbox_inches='tight')
+                plt.savefig(plotdir + '/' + '{}.pdf'.format(binary_to_decimal(key)), bbox_inches='tight')
         # for group in groups_nested:
         #     n = len(group[1])
         #     key = self.model_list_object.generate_key(group[1].iloc[0].to_dict())
@@ -418,19 +418,32 @@ class analysis:
             key = self.model_list_object.generate_key(d)
             model_freq_nested[binary_to_decimal(key)] = n
 
+        # If you want to plot the nested sampling frequencies, uncomment the following lines. 
+        # plt.figure()
+        # plt.subplot(211)
+        # ax = plt.gca()
+        # plt.bar(model_freq_nested.keys(), model_freq_nested.values(), color = 'r', alpha = 0.3)
+        # x_min, x_max = ax.get_xlim()
+        # plt.subplot(212)
+        # ax = plt.gca()
+        # plt.bar(self.model_freq.keys(), self.model_freq.values())
+        # plt.xlim(x_min, x_max)
+        # plotdir = outdir + '/' + 'plots'
+        # os.makedirs(plotdir, exist_ok=True)
+        # plt.savefig(plotdir + '/' + 'model_freq.pdf', bbox_inches='tight')
+        # plt.close()
+
         plt.figure()
-        plt.subplot(211)
-        ax = plt.gca()
-        plt.bar(model_freq_nested.keys(), model_freq_nested.values(), color = 'r', alpha = 0.3)
-        x_min, x_max = ax.get_xlim()
-        plt.subplot(212)
-        ax = plt.gca()
+
         plt.bar(self.model_freq.keys(), self.model_freq.values())
-        plt.xlim(x_min, x_max)
-        plotdir = outdir + '/' + 'plots'
+
+        plotdir = os.path.join(outdir, 'plots')
         os.makedirs(plotdir, exist_ok=True)
-        plt.savefig(plotdir + '/' + 'model_freq.png', bbox_inches='tight')
+
+        plt.savefig(os.path.join(plotdir, 'model_freq.pdf'), bbox_inches='tight')
         plt.close()
+
+
     def margin_over_model(self):
         temp_results, _ = tbilby.core.base.preprocess_results(result_in=self.result,model_dict=self.model_dict,remove_ghost_samples=True,return_samples_of_most_freq_component_function=False)
         # import file with injected data if it exists and put into dictionary
@@ -467,7 +480,7 @@ class analysis:
             # Save the plots
             plotdir = outdir + '/' + 'plots'
             os.makedirs(plotdir, exist_ok=True)
-            plt.savefig(plotdir + '/' + p + '_marg_post.png', bbox_inches='tight')
+            plt.savefig(plotdir + '/' + p + '_marg_post.pdf', bbox_inches='tight')
     def pp_analysis(self, injected_model_key):
         injected_model_int = binary_to_decimal(injected_model_key)
         print("injected model key")
