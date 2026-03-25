@@ -14,10 +14,6 @@ These scripts are designed for single-pulsar analyses and validation against sta
 
 - Transdimensional noise modelling (automatic component selection)
 - Joint model selection + parameter estimation
-- Built on:
-  - Bilby: https://git.ligo.org/lscsoft/bilby
-  - tBilby: https://github.com/tBilby/tBilby
-  - Enterprise: https://github.com/nanograv/enterprise
 - Modular scripts for:
   - model setup
   - sampling
@@ -40,7 +36,7 @@ scripts/
 
 ## Requirements (to run tPTABilby)
 
-- Bilby
+- Bilby (https://git.ligo.org/lscsoft/bilby)
 - tBilby (https://github.com/tBilby/tBilby)
 - Enterprise (https://github.com/nanograv/enterprise)
 - Enterprise_extensions (https://github.com/nanograv/enterprise_extensions)
