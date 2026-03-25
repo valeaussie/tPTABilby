@@ -2,7 +2,7 @@
 
 ## Overview
 
-This repository contains scripts for transdimensional noise modelling of pulsar timing data using a Bilby / tBilby + Enterprise framework.
+This repository contains scripts for transdimensional noise modelling of pulsar timing data using a transdimentional framework.
 
 The core idea is to perform **model selection and parameter estimation simultaneously** by allowing different noise components to be switched on and off during sampling. This is implemented using a transdimensional approach with binary indicators.
 
@@ -25,7 +25,7 @@ These scripts are designed for single-pulsar analyses and validation against sta
 
 ---
 
-## Repository Structure (Relevant Only)
+## Repository Structure
 
 ```
 scripts/
@@ -38,21 +38,13 @@ scripts/
 
 ---
 
-## Requirements
+## Requirements (to run tPTABilby)
 
-- Python 3.8+
-- bilby
-- enterprise
-- enterprise_extensions (if used)
-- numpy
-- scipy
-- matplotlib
-
-Install dependencies:
-
-```
-pip install bilby enterprise numpy scipy matplotlib
-```
+- Bilby
+- tBilby (https://github.com/tBilby/tBilby)
+- Enterprise (https://github.com/nanograv/enterprise)
+- Enterprise_extensions (https://github.com/nanograv/enterprise_extensions)
+- Enterprise_warp (https://enterprise-warp.readthedocs.io/en/latest/)
 
 ---
 
@@ -72,11 +64,11 @@ Run the main analysis script:
 python run_tbilby_analysis.py
 ```
 
-> Adjust script names or arguments depending on your configuration.
+> The models are built with Enterprise language and are implemented in the noise_definition.py file.
 
 ---
 
-### 2. Posterior Predictive Checks (Optional)
+### 2. Posterior Predictive Checks (to validate the method against other methods)
 
 ```
 cd ../post_pred_scripts/
@@ -108,28 +100,6 @@ This allows:
 - model selection and parameter estimation in a single run
 - direct inference on which noise processes are supported by the data
 
----
-
-## Outputs
-
-Typical outputs include:
-
-- Posterior samples (Bilby result objects)
-- Noise parameter estimates
-- Model indicator probabilities (component inclusion)
-- Posterior predictive diagnostics and plots
-
----
-
-## Reproducibility
-
-To reproduce results:
-
-- Use the same pulsar data and priors defined in the scripts
-- Keep sampler settings consistent (e.g. number of live points)
-- Ensure dependency versions are compatible
-
----
 
 ## Citation
 
